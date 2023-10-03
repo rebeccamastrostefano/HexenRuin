@@ -1,0 +1,20 @@
+{
+	"name": "ExtractFam",
+	"plugin-id": "Sprite",
+	"sid": 950236192849311,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ExtractUI",
+		"HealthIconBuy",
+		"ManaIconBuy",
+		"TagExtract",
+		"ExtractGemSpot",
+		"SoulsIconExtract",
+		"BuySlot",
+		"HealthIcon",
+		"ManaIcon",
+		"PotionIconUI"
+	]
+}

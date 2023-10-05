@@ -427,9 +427,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 552155489079498,
+							"sid": 620691596564506,
 							"parameters": {
-								"key": 17
+								"key": 16
 							}
 						}
 					],
@@ -474,6 +474,31 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 649930992883130
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 412422693397837,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 363749204132055,
+							"parameters": {
+								"audio-file": "19 another LOOP",
+								"loop": "looping",
+								"volume": "-7",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
 						{
 							"id": "move-to-layer",
 							"objectClass": "Hero",
@@ -599,12 +624,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 406098430290066,
+									"sid": 802529457182839,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "138.162986",
-										"y": "264.627105",
+										"x": "160",
+										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -623,14 +648,67 @@
 								{
 									"id": "typewriter-text",
 									"objectClass": "Dialog",
-									"sid": 243325756033887,
+									"sid": 391033216080486,
 									"parameters": {
-										"text": "\"Press 1 to change potion, Press Q to use it\"",
+										"text": "\"Press Q to change potion, Right Mouse button to use it\"",
 										"duration": "0"
 									}
 								}
 							],
 							"sid": 345742504042166
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 949354334589075
+								},
+								{
+									"id": "compare-child-count",
+									"objectClass": "Nimm",
+									"sid": 266513419249005,
+									"parameters": {
+										"which": "own",
+										"comparison": 0,
+										"count": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 391850826122762,
+									"parameters": {
+										"object-to-create": "HitboxNimm",
+										"layer": "\"Hero\"",
+										"x": "Nimm.X",
+										"y": "Nimm.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Nimm",
+									"sid": 840036680924395,
+									"parameters": {
+										"child": "HitboxNimm",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-o": false,
+										"transform-z-elevation": true,
+										"transform-visibility": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 888325854797319
 						}
 					]
 				},
@@ -662,9 +740,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Dialog",
-							"sid": 550987016126167,
+							"sid": 802221601070371,
 							"parameters": {
-								"text": "\"Press 2 to change Spell, Right Click to Use it\"",
+								"text": "\"Press 1 to Use Spell\"",
 								"duration": "0"
 							}
 						}
@@ -699,9 +777,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Dialog",
-							"sid": 295464662069965,
+							"sid": 934315324305190,
 							"parameters": {
-								"text": "\"Press 3 to change Summon, Press Shift to Use\"",
+								"text": "\"Press 2 to Use Summon\"",
 								"duration": "0"
 							}
 						}
@@ -847,6 +925,14 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 955279449137082,
+							"parameters": {
+								"collisions": "enabled"
+							}
 						}
 					],
 					"sid": 834138882556517
@@ -869,6 +955,14 @@
 							"parameters": {
 								"animation": "\"run\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 203984571249837,
+							"parameters": {
+								"collisions": "enabled"
 							}
 						}
 					],
@@ -899,6 +993,14 @@
 								"animation": "\"run\"",
 								"from": "beginning"
 							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 322075135681728,
+							"parameters": {
+								"collisions": "enabled"
+							}
 						}
 					],
 					"sid": 338252045850751
@@ -910,6 +1012,17 @@
 							"id": "on-any-animation-finished",
 							"objectClass": "Hero",
 							"sid": 949154719027000
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 260876713343695,
+							"parameters": {
+								"variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -980,6 +1093,35 @@
 					],
 					"actions": [
 						{
+							"id": "set-animation",
+							"objectClass": "Hero",
+							"sid": 318771026043623,
+							"parameters": {
+								"animation": "\"Dead\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Hero",
+							"sid": 101709713527110,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Hero",
+							"sid": 863074958528156,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "0"
+							}
+						},
+						{
 							"id": "set-cone-of-view",
 							"objectClass": "Enemy",
 							"sid": 805268499910657,
@@ -1010,29 +1152,11 @@
 							}
 						},
 						{
-							"id": "set-max-speed",
-							"objectClass": "Hero",
-							"sid": 837256344205605,
-							"behaviorType": "Platform",
-							"parameters": {
-								"max-speed": "0"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Hero",
-							"sid": 625712201019213,
-							"parameters": {
-								"animation": "\"Dead\"",
-								"from": "beginning"
-							}
-						},
-						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 501945691845059,
+							"sid": 512101112678367,
 							"parameters": {
-								"seconds": "2.5"
+								"seconds": "2"
 							}
 						},
 						{
@@ -1351,9 +1475,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 422355417226285,
+											"sid": 550438264249616,
 											"parameters": {
-												"seconds": "0.5"
+												"seconds": "0.2"
 											}
 										},
 										{
@@ -1804,6 +1928,7 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 382438947272038,
+											"disabled": true,
 											"parameters": {
 												"variable": "CurrentSpell",
 												"value": "2"
@@ -1861,7 +1986,8 @@
 											}
 										}
 									],
-									"sid": 687684849632986
+									"sid": 687684849632986,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1920,7 +2046,8 @@
 											}
 										}
 									],
-									"sid": 857094170599711
+									"sid": 857094170599711,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1965,7 +2092,8 @@
 											}
 										}
 									],
-									"sid": 175458433571656
+									"sid": 175458433571656,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2010,7 +2138,8 @@
 											}
 										}
 									],
-									"sid": 824736625227942
+									"sid": 824736625227942,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2037,7 +2166,8 @@
 											}
 										}
 									],
-									"sid": 263800869235835
+									"sid": 263800869235835,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2064,7 +2194,8 @@
 											}
 										}
 									],
-									"sid": 429591430212693
+									"sid": 429591430212693,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2081,7 +2212,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 884352638345833,
 											"parameters": {
 												"animation": "\"Ball\"",
@@ -2090,7 +2221,7 @@
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 301342050437326,
 											"parameters": {
 												"visibility": "visible"
@@ -2109,6 +2240,7 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 379614423187511,
+											"disabled": true,
 											"parameters": {
 												"variable": "CurrentSummon",
 												"value": "1"
@@ -2141,7 +2273,7 @@
 										},
 										{
 											"id": "set-animation",
-											"objectClass": "SummonIcon",
+											"objectClass": "ShielIcon",
 											"sid": 917441534296693,
 											"parameters": {
 												"animation": "\"Shield\"",
@@ -2150,7 +2282,7 @@
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "SummonIcon",
+											"objectClass": "ShielIcon",
 											"sid": 806107224013855,
 											"parameters": {
 												"visibility": "visible"
@@ -2160,6 +2292,7 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 290744607050432,
+											"disabled": true,
 											"parameters": {
 												"variable": "CurrentSummon",
 												"value": "2"
@@ -2191,7 +2324,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 569399102694428,
 											"parameters": {
 												"animation": "\"Ball\"",
@@ -2218,14 +2351,15 @@
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 558259740041203,
 											"parameters": {
 												"visibility": "visible"
 											}
 										}
 									],
-									"sid": 472776449371235
+									"sid": 472776449371235,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2240,7 +2374,7 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 403612562013587,
 											"parameters": {
 												"animation": "\"Shield\""
@@ -2278,7 +2412,8 @@
 											}
 										}
 									],
-									"sid": 296490242591251
+									"sid": 296490242591251,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2293,7 +2428,7 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 768806084039992,
 											"parameters": {
 												"animation": "\"Ball\""
@@ -2331,7 +2466,8 @@
 											}
 										}
 									],
-									"sid": 884399073048468
+									"sid": 884399073048468,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2350,7 +2486,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 392314002515637,
 											"parameters": {
 												"animation": "\"Ball\"",
@@ -2358,7 +2494,8 @@
 											}
 										}
 									],
-									"sid": 612388147737908
+									"sid": 612388147737908,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2377,7 +2514,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "SummonIcon",
+											"objectClass": "BallIcon",
 											"sid": 797721944229333,
 											"parameters": {
 												"animation": "\"Shield\"",
@@ -2385,7 +2522,8 @@
 											}
 										}
 									],
-									"sid": 591309459077955
+									"sid": 591309459077955,
+									"disabled": true
 								}
 							],
 							"sid": 150692065819952
@@ -2401,11 +2539,12 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 861752403371722,
+											"id": "on-click",
+											"objectClass": "Mouse",
+											"sid": 270544960195549,
 											"parameters": {
-												"key": 81
+												"mouse-button": "right",
+												"click-type": "clicked"
 											}
 										},
 										{
@@ -2465,11 +2604,12 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 901339726873268,
+											"id": "on-click",
+											"objectClass": "Mouse",
+											"sid": 213662183357278,
 											"parameters": {
-												"key": 81
+												"mouse-button": "right",
+												"click-type": "clicked"
 											}
 										},
 										{
@@ -2701,9 +2841,9 @@
 										{
 											"id": "on-key-pressed",
 											"objectClass": "Keyboard",
-											"sid": 101098539868463,
+											"sid": 610989025713781,
 											"parameters": {
-												"key": 49
+												"key": 81
 											}
 										},
 										{
@@ -2756,9 +2896,9 @@
 										{
 											"id": "on-key-pressed",
 											"objectClass": "Keyboard",
-											"sid": 695031967460006,
+											"sid": 525376336286809,
 											"parameters": {
-												"key": 49
+												"key": 81
 											}
 										},
 										{
@@ -3736,7 +3876,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -3776,6 +3918,15 @@
 												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Gem1",
+											"sid": 805219708089383,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
 											}
 										}
 									],
@@ -4001,7 +4152,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -4042,6 +4195,15 @@
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Gem2",
+											"sid": 908202921290705,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
 										}
 									],
 									"sid": 492999019046533
@@ -4081,7 +4243,8 @@
 									}
 								}
 							],
-							"sid": 477176230810600
+							"sid": 477176230810600,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -4103,7 +4266,8 @@
 									}
 								}
 							],
-							"sid": 119992462643286
+							"sid": 119992462643286,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -4137,7 +4301,8 @@
 									}
 								}
 							],
-							"sid": 674054882711153
+							"sid": 674054882711153,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -4168,7 +4333,8 @@
 									}
 								}
 							],
-							"sid": 288029115764907
+							"sid": 288029115764907,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -4226,6 +4392,7 @@
 								}
 							],
 							"sid": 178427265991415,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -4266,7 +4433,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -4307,9 +4476,19 @@
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Gem3",
+											"sid": 552077807468604,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
 										}
 									],
-									"sid": 216217006083900
+									"sid": 216217006083900,
+									"disabled": true
 								}
 							]
 						},
@@ -4531,7 +4710,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -4571,6 +4752,15 @@
 												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Gem4",
+											"sid": 504275735565495,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
 											}
 										}
 									],
@@ -5435,10 +5625,10 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Nimm",
-									"sid": 670862195067194,
+									"sid": 373231882847608,
 									"parameters": {
 										"instance-variable": "Health",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									}
 								},
@@ -5597,6 +5787,15 @@
 									"parameters": {
 										"state": "not-mirrored"
 									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Nimm",
+									"sid": 325577750765518,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "60"
+									}
 								}
 							],
 							"sid": 102610664310817
@@ -5641,6 +5840,15 @@
 									"sid": 431417642096562,
 									"parameters": {
 										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Nimm",
+									"sid": 103450812060945,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "60"
 									}
 								}
 							],
@@ -5951,7 +6159,7 @@
 								{
 									"id": "every-x-seconds",
 									"objectClass": "System",
-									"sid": 104243557634844,
+									"sid": 756112352102948,
 									"parameters": {
 										"interval-seconds": "1"
 									}
@@ -5969,19 +6177,19 @@
 								{
 									"id": "compare-x",
 									"objectClass": "Nimm",
-									"sid": 902127461522335,
+									"sid": 452858383085658,
 									"parameters": {
 										"comparison": 4,
-										"x-co-ordinate": "Hero.X-50"
+										"x-co-ordinate": "Hero.X-100"
 									}
 								},
 								{
 									"id": "compare-x",
 									"objectClass": "Nimm",
-									"sid": 634664342507938,
+									"sid": 178880374715975,
 									"parameters": {
 										"comparison": 2,
-										"x-co-ordinate": "Hero.X+50"
+										"x-co-ordinate": "Hero.X+100"
 									}
 								},
 								{
@@ -6003,13 +6211,20 @@
 									}
 								},
 								{
-									"id": "compare-instance-variable",
+									"id": "is-animation-playing",
 									"objectClass": "Nimm",
-									"sid": 763498360739930,
+									"sid": 696410329356364,
 									"parameters": {
-										"instance-variable": "Status",
-										"comparison": 0,
-										"value": "\"Laser\""
+										"animation": "\"Shield\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Nimm",
+									"sid": 892668802451222,
+									"parameters": {
+										"animation": "\"Laser\""
 									},
 									"isInverted": true
 								}
@@ -6026,7 +6241,7 @@
 								},
 								{
 									"id": "set-collisions-enabled",
-									"objectClass": "Nimm",
+									"objectClass": "HitboxNimm",
 									"sid": 776259483769341,
 									"parameters": {
 										"collisions": "enabled"
@@ -6051,7 +6266,8 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 782042771695883
+											"sid": 782042771695883,
+											"disabled": true
 										}
 									],
 									"actions": [
@@ -6075,7 +6291,7 @@
 										},
 										{
 											"id": "set-collisions-enabled",
-											"objectClass": "Nimm",
+											"objectClass": "HitboxNimm",
 											"sid": 376850677299564,
 											"parameters": {
 												"collisions": "enabled"
@@ -6109,6 +6325,95 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 351644146060102,
+									"parameters": {
+										"interval-seconds": "10"
+									}
+								},
+								{
+									"id": "has-los-to-object",
+									"objectClass": "Nimm",
+									"sid": 260895583426983,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Hitbox",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Nimm",
+									"sid": 719431756985462,
+									"parameters": {
+										"animation": "\"Shield\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Nimm",
+									"sid": 211847024382176,
+									"parameters": {
+										"animation": "\"Melee\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 357287477980085,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Nimm",
+											"sid": 788172151697878,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "Hero.X-40"
+											}
+										},
+										{
+											"id": "compare-x",
+											"objectClass": "Nimm",
+											"sid": 376062070404083,
+											"parameters": {
+												"comparison": 4,
+												"x-co-ordinate": "Hero.X+40"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 519030567548848,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Laser\""
+											}
+										},
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "HitboxNimm",
+											"sid": 596034558665580,
+											"parameters": {
+												"collisions": "enabled"
+											}
+										}
+									],
+									"sid": 836759015480716,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "has-los-to-object",
 									"objectClass": "Nimm",
 									"sid": 917571440723541,
@@ -6121,6 +6426,7 @@
 							],
 							"actions": [],
 							"sid": 866241106587051,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -6156,7 +6462,8 @@
 											}
 										}
 									],
-									"sid": 152450672373878
+									"sid": 152450672373878,
+									"disabled": true
 								}
 							]
 						},
@@ -6185,7 +6492,8 @@
 									}
 								}
 							],
-							"sid": 275846469563876
+							"sid": 275846469563876,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -6240,7 +6548,8 @@
 									}
 								}
 							],
-							"sid": 645271587485775
+							"sid": 645271587485775,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -6322,7 +6631,8 @@
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
-									"sid": 379623339835603
+									"sid": 379623339835603,
+									"disabled": true
 								}
 							],
 							"actions": [
@@ -6361,7 +6671,88 @@
 								}
 							],
 							"sid": 615320255414070,
-							"disabled": true
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "Nimm",
+											"sid": 364135878282526,
+											"parameters": {
+												"animation": "\"Shield\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Nimm",
+											"sid": 873136450486602,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 986035534882583,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Laser\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 291391963667235,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "\"Left\""
+											}
+										},
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "HitboxNimm",
+											"sid": 448606267265502,
+											"parameters": {
+												"collisions": "enabled"
+											}
+										}
+									],
+									"sid": 271895906826456
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Nimm",
+									"sid": 165681316676426,
+									"parameters": {
+										"animation": "\"Shield\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 756813561693636
+								}
+							],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "HitboxNimm",
+									"sid": 749040676946553,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								}
+							],
+							"sid": 620251762862696
 						},
 						{
 							"eventType": "block",
@@ -6481,6 +6872,33 @@
 											"id": "destroy",
 											"objectClass": "HitHero",
 											"sid": 626492427201089
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Nimm",
+											"sid": 425867594624723,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 934979890456377,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 494308048127825,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "\"Left\""
+											}
 										}
 									],
 									"sid": 234292223208002,
@@ -6558,6 +6976,33 @@
 											"id": "destroy",
 											"objectClass": "HitHero",
 											"sid": 893686545865330
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Nimm",
+											"sid": 964164652909063,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 914270030988182,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 779908130485323,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "\"Left\""
+											}
 										}
 									],
 									"sid": 873262389982943,
@@ -6569,11 +7014,6 @@
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
 													"sid": 114782457363377
-												},
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 224610319002733
 												}
 											],
 											"actions": [
@@ -6612,9 +7052,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Nimm",
-									"sid": 860232604327371,
+									"sid": 864238933660991,
 									"parameters": {
-										"animation": "\"Idle\"",
+										"animation": "\"idle\"",
 										"from": "beginning"
 									}
 								},
@@ -6650,9 +7090,9 @@
 								{
 									"id": "on-collision-with-another-object",
 									"objectClass": "HitMelee",
-									"sid": 250051869624884,
+									"sid": 976621723382089,
 									"parameters": {
-										"object": "Nimm"
+										"object": "HitboxNimm"
 									}
 								}
 							],
@@ -6678,15 +7118,6 @@
 									}
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Nimm",
-									"sid": 285114216787517,
-									"parameters": {
-										"instance-variable": "Status",
-										"value": "\"Shield\""
-									}
-								},
-								{
 									"id": "play",
 									"objectClass": "Audio",
 									"sid": 438482534855844,
@@ -6699,7 +7130,52 @@
 									}
 								}
 							],
-							"sid": 868489459380995
+							"sid": 868489459380995,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Nimm",
+											"sid": 721575348870373,
+											"parameters": {
+												"animation": "\"Laser\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Nimm",
+											"sid": 475116250740425,
+											"parameters": {
+												"animation": "\"Melee\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 497586315773297,
+											"parameters": {
+												"interval-seconds": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Nimm",
+											"sid": 967706823459181,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Shield\""
+											}
+										}
+									],
+									"sid": 723508542708869
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -6755,7 +7231,8 @@
 									}
 								}
 							],
-							"sid": 906828230669956
+							"sid": 906828230669956,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -6763,9 +7240,9 @@
 								{
 									"id": "on-collision-with-another-object",
 									"objectClass": "HitHeavy",
-									"sid": 500064255426461,
+									"sid": 962475160024014,
 									"parameters": {
-										"object": "Nimm"
+										"object": "HitboxNimm"
 									}
 								}
 							],
@@ -6809,6 +7286,15 @@
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Nimm",
+									"sid": 249023091703677,
+									"parameters": {
+										"instance-variable": "Status",
+										"value": "\"Shield\""
+									}
 								}
 							],
 							"sid": 859111464163662
@@ -6819,9 +7305,9 @@
 								{
 									"id": "on-collision-with-another-object",
 									"objectClass": "Ball",
-									"sid": 477682359121905,
+									"sid": 524150163507708,
 									"parameters": {
-										"object": "Nimm"
+										"object": "HitboxNimm"
 									}
 								}
 							],
@@ -6861,6 +7347,15 @@
 										"volume": "0",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Nimm",
+									"sid": 935294040672526,
+									"parameters": {
+										"instance-variable": "Status",
+										"value": "\"Shield\""
 									}
 								}
 							],
@@ -7029,56 +7524,6 @@
 									"sid": 777899848090268
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Nimm",
-									"sid": 110645642329056,
-									"parameters": {
-										"animation": "\"Shield\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-collisions-enabled",
-									"objectClass": "Nimm",
-									"sid": 827273348815108,
-									"parameters": {
-										"collisions": "disabled"
-									}
-								}
-							],
-							"sid": 808683009876751,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Nimm",
-									"sid": 732604564015637,
-									"parameters": {
-										"animation": "\"Shield\""
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-collisions-enabled",
-									"objectClass": "Nimm",
-									"sid": 862251998441718,
-									"parameters": {
-										"collisions": "enabled"
-									}
-								}
-							],
-							"sid": 345259184471971
 						}
 					],
 					"sid": 243818769186173
@@ -7683,10 +8128,10 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Enemy",
-									"sid": 279593231856297,
+									"sid": 404670908068072,
 									"parameters": {
 										"instance-variable": "HealthEenemy",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									}
 								},
@@ -7701,6 +8146,19 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 342183342041809,
+									"parameters": {
+										"object-to-create": "SoulsSkeleton",
+										"layer": "\"Hero\"",
+										"x": "Enemy.X",
+										"y": "Enemy.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemy",
@@ -7739,15 +8197,6 @@
 									"sid": 822498190997662
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 189421715982199,
-									"parameters": {
-										"variable": "Souls",
-										"value": "Enemy.SoulsDrop"
-									}
-								},
-								{
 									"id": "destroy",
 									"objectClass": "HitHero",
 									"sid": 990316867286145
@@ -7761,10 +8210,10 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Enemy",
-									"sid": 164785193837142,
+									"sid": 734152409651139,
 									"parameters": {
 										"instance-variable": "HealthEenemy",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									}
 								},
@@ -7779,6 +8228,19 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 797677541471774,
+									"parameters": {
+										"object-to-create": "SoulsSkeleton",
+										"layer": "\"Hero\"",
+										"x": "Enemy.X",
+										"y": "Enemy.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemy",
@@ -7817,15 +8279,6 @@
 									"sid": 558001730233400
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 192556895706362,
-									"parameters": {
-										"variable": "Souls",
-										"value": "Enemy.SoulsDrop"
-									}
-								},
-								{
 									"id": "destroy",
 									"objectClass": "HitHero",
 									"sid": 596223719986453
@@ -7862,6 +8315,90 @@
 								}
 							],
 							"sid": 585401215840483
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Hero",
+									"sid": 676591071151529,
+									"parameters": {
+										"object": "SoulsSkeleton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 787413351227575,
+									"parameters": {
+										"variable": "Souls",
+										"value": "Skeleton.SoulsDrop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 607156805281659,
+									"parameters": {
+										"audio-file": "Sould",
+										"loop": "not-looping",
+										"volume": "-3",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "SoulsSkeleton",
+									"sid": 725377453781166
+								}
+							],
+							"sid": 483661725255481
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Hero",
+									"sid": 672261047631330,
+									"parameters": {
+										"object": "SoulsHound"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 519207742908326,
+									"parameters": {
+										"variable": "Souls",
+										"value": "Hound.SoulsDrop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 353948163853043,
+									"parameters": {
+										"audio-file": "Sould",
+										"loop": "not-looping",
+										"volume": "-3",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "SoulsSkeleton",
+									"sid": 190226016945518
+								}
+							],
+							"sid": 442728534663924
 						}
 					],
 					"sid": 523351339440233
@@ -7905,7 +8442,9 @@
 										"transform-w": false,
 										"transform-h": false,
 										"transform-a": false,
+										"transform-o": false,
 										"transform-z-elevation": true,
+										"transform-visibility": false,
 										"destroy-with-parent": true
 									}
 								}
@@ -7944,7 +8483,9 @@
 										"transform-w": false,
 										"transform-h": false,
 										"transform-a": false,
+										"transform-o": false,
 										"transform-z-elevation": true,
+										"transform-visibility": false,
 										"destroy-with-parent": true
 									}
 								}
@@ -8166,6 +8707,78 @@
 								}
 							],
 							"sid": 833299123286669
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hound",
+									"sid": 384655211537465,
+									"parameters": {
+										"instance-variable": "HealthEenemy",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Hound",
+									"sid": 317084795012637,
+									"parameters": {
+										"child": "HoundHealtybar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "HoundHealtybar",
+									"sid": 862629945085705,
+									"parameters": {
+										"animation": "\"1\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 160758373524911
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hound",
+									"sid": 327442815874957,
+									"parameters": {
+										"instance-variable": "HealthEenemy",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Hound",
+									"sid": 839420928458044,
+									"parameters": {
+										"child": "HoundHealtybar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "HoundHealtybar",
+									"sid": 682575850855370,
+									"parameters": {
+										"animation": "\"0\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 967704787711714
 						},
 						{
 							"eventType": "block",
@@ -8594,6 +9207,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-max-speed",
+							"objectClass": "Hero",
+							"sid": 108459073858165,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "0"
+							}
+						},
+						{
 							"id": "play",
 							"objectClass": "Audio",
 							"sid": 431580546893795,
@@ -8665,18 +9287,18 @@
 							}
 						}
 					],
-					"sid": 894808008216917
+					"sid": 894808008216917,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-click",
-							"objectClass": "Mouse",
-							"sid": 999341196306570,
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 301944468524440,
 							"parameters": {
-								"mouse-button": "right",
-								"click-type": "clicked"
+								"key": 49
 							}
 						},
 						{
@@ -8714,21 +9336,21 @@
 					],
 					"actions": [
 						{
+							"id": "set-max-speed",
+							"objectClass": "Hero",
+							"sid": 771543349884578,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "0"
+							}
+						},
+						{
 							"id": "set-animation",
 							"objectClass": "Hero",
 							"sid": 770019251493004,
 							"parameters": {
 								"animation": "\"HeavySpell\"",
 								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-max-speed",
-							"objectClass": "Hero",
-							"sid": 263823728493115,
-							"behaviorType": "Platform",
-							"parameters": {
-								"max-speed": "0"
 							}
 						},
 						{
@@ -8793,9 +9415,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 388201470273876,
+							"sid": 875051944071703,
 							"parameters": {
-								"key": 16
+								"key": 51
 							}
 						},
 						{
@@ -8809,7 +9431,7 @@
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 696966662934138,
 							"parameters": {
 								"animation": "\"Shield\""
@@ -8817,7 +9439,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 545961925386639
 						},
 						{
@@ -8867,14 +9489,14 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 687992663702996,
+							"sid": 629474839617056,
 							"parameters": {
-								"key": 16
+								"key": 51
 							}
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 520242446000335,
 							"parameters": {
 								"animation": "\"Shield\""
@@ -8882,7 +9504,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 801381441889320
 						},
 						{
@@ -8937,6 +9559,14 @@
 								"image-point": "1",
 								"create-hierarchy": false
 							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 951634226627361,
+							"parameters": {
+								"collisions": "disabled"
+							}
 						}
 					],
 					"sid": 679620270394342
@@ -8947,14 +9577,14 @@
 						{
 							"id": "on-key-released",
 							"objectClass": "Keyboard",
-							"sid": 847700449193592,
+							"sid": 501472643432350,
 							"parameters": {
-								"key": 16
+								"key": 51
 							}
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 303131148372834,
 							"parameters": {
 								"animation": "\"Shield\""
@@ -8962,7 +9592,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 821815301325495
 						}
 					],
@@ -8989,6 +9619,14 @@
 							"parameters": {
 								"max-speed": "200"
 							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 684689362024995,
+							"parameters": {
+								"collisions": "enabled"
+							}
 						}
 					],
 					"sid": 640230228237771
@@ -9007,16 +9645,16 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 867887130562713,
+							"sid": 114510395612224,
 							"parameters": {
 								"variable": "Mana",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							}
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 244537121484565,
 							"parameters": {
 								"animation": "\"Shield\""
@@ -9024,7 +9662,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "SummonIcon",
+							"objectClass": "ShielIcon",
 							"sid": 743430158580243
 						}
 					],
@@ -9050,6 +9688,14 @@
 							"behaviorType": "Platform",
 							"parameters": {
 								"max-speed": "200"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Hitbox",
+							"sid": 918975129997941,
+							"parameters": {
+								"collisions": "enabled"
 							}
 						}
 					],
@@ -9094,14 +9740,14 @@
 						{
 							"id": "on-key-released",
 							"objectClass": "Keyboard",
-							"sid": 502257393653796,
+							"sid": 215260970142298,
 							"parameters": {
-								"key": 16
+								"key": 50
 							}
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "SummonIcon",
+							"objectClass": "BallIcon",
 							"sid": 293505860780716,
 							"parameters": {
 								"animation": "\"Ball\""
@@ -9109,7 +9755,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "SummonIcon",
+							"objectClass": "BallIcon",
 							"sid": 380887599197858
 						},
 						{
@@ -9324,16 +9970,6 @@
 							"parameters": {
 								"object": "Enemy"
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Enemy",
-							"sid": 179811960724452,
-							"parameters": {
-								"instance-variable": "HealthEenemy",
-								"comparison": 1,
-								"value": "0"
-							}
 						}
 					],
 					"actions": [
@@ -9430,7 +10066,8 @@
 							}
 						}
 					],
-					"sid": 655026706667922
+					"sid": 655026706667922,
+					"disabled": true
 				},
 				{
 					"eventType": "block",

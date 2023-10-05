@@ -46,7 +46,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 24,
@@ -78,7 +79,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 24,
@@ -110,7 +112,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 24,
@@ -142,7 +145,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 998903824448537,

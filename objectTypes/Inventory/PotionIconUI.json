@@ -27,7 +27,8 @@
 								"y": -0.06666666666666667
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 19,
@@ -46,7 +47,8 @@
 								"y": -0.06666666666666667
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 807583608646430,
@@ -85,7 +87,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 20,
@@ -113,7 +116,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 346644053850594,

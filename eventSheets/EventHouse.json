@@ -32,6 +32,31 @@
 			],
 			"actions": [
 				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 209394478906874
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 360506366698817,
+					"parameters": {
+						"seconds": "0.3"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 164864993289574,
+					"parameters": {
+						"audio-file": "17 9 coasting LOOP",
+						"loop": "looping",
+						"volume": "-7",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "set-position",
 					"objectClass": "Hero",
 					"sid": 410773036956509,
@@ -130,6 +155,43 @@
 					"sid": 723807225955445,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Gem1",
+					"sid": 340160845792250,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Gem2",
+					"sid": 665980752946227,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Gem3",
+					"sid": 421451470031511,
+					"disabled": true,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Gem4",
+					"sid": 290166792629757,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
 					}
 				}
 			],
@@ -520,7 +582,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -743,7 +807,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										}
@@ -981,7 +1047,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -1204,7 +1272,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -1694,9 +1764,9 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "ExtractGemSpot",
-									"sid": 879315390241316,
+									"sid": 288578803556915,
 									"parameters": {
-										"object": "LightSpellIcon",
+										"object": "HeavySpell",
 										"layer": "\"Extract\"",
 										"image-point": "1",
 										"create-hierarchy": false
@@ -1774,7 +1844,7 @@
 										},
 										{
 											"id": "destroy",
-											"objectClass": "LightSpellIcon",
+											"objectClass": "HeavySpell",
 											"sid": 590473353008439
 										},
 										{
@@ -1790,7 +1860,7 @@
 											"objectClass": "System",
 											"sid": 132359514293521,
 											"parameters": {
-												"object-to-create": "LightSpellIcon",
+												"object-to-create": "HeavySpell",
 												"layer": "\"Extract\"",
 												"x": "Slots.x",
 												"y": "Slots.Y",
@@ -1803,13 +1873,15 @@
 											"objectClass": "Slots",
 											"sid": 204219292703433,
 											"parameters": {
-												"child": "LightSpellIcon",
+												"child": "HeavySpell",
 												"transform-x": false,
 												"transform-y": false,
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -1833,7 +1905,7 @@
 										},
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "LightSpellIcon",
+											"objectClass": "HeavySpell",
 											"sid": 556872952587507,
 											"parameters": {
 												"instance-variable": "Picked",
@@ -2010,9 +2082,9 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "ExtractGemSpot",
-									"sid": 521573007302703,
+									"sid": 694046753086592,
 									"parameters": {
-										"object": "HeavySpell",
+										"object": "FollowBall",
 										"layer": "\"Extract\"",
 										"image-point": "1",
 										"create-hierarchy": false
@@ -2090,7 +2162,7 @@
 										},
 										{
 											"id": "destroy",
-											"objectClass": "HeavySpell",
+											"objectClass": "FollowBall",
 											"sid": 696990091218298
 										},
 										{
@@ -2106,7 +2178,7 @@
 											"objectClass": "System",
 											"sid": 840978418492267,
 											"parameters": {
-												"object-to-create": "HeavySpell",
+												"object-to-create": "FollowBall",
 												"layer": "\"Extract\"",
 												"x": "Slots.x",
 												"y": "Slots.Y",
@@ -2119,13 +2191,15 @@
 											"objectClass": "Slots",
 											"sid": 237361027558505,
 											"parameters": {
-												"child": "HeavySpell",
+												"child": "FollowBall",
 												"transform-x": false,
 												"transform-y": false,
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -2149,7 +2223,7 @@
 										},
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "HeavySpell",
+											"objectClass": "FollowBall",
 											"sid": 605279322087620,
 											"parameters": {
 												"instance-variable": "Picked",
@@ -2185,6 +2259,7 @@
 							],
 							"actions": [],
 							"sid": 150699750691298,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -2254,7 +2329,8 @@
 											}
 										}
 									],
-									"sid": 604033454852050
+									"sid": 604033454852050,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2306,7 +2382,8 @@
 											}
 										}
 									],
-									"sid": 257445131696961
+									"sid": 257445131696961,
+									"disabled": true
 								}
 							]
 						},
@@ -2335,7 +2412,8 @@
 									}
 								}
 							],
-							"sid": 832339543956392
+							"sid": 832339543956392,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -2367,6 +2445,7 @@
 							],
 							"actions": [],
 							"sid": 916458200106958,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -2441,7 +2520,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -2485,7 +2566,8 @@
 											}
 										}
 									],
-									"sid": 944101635617736
+									"sid": 944101635617736,
+									"disabled": true
 								}
 							]
 						},
@@ -2757,7 +2839,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										},
@@ -3012,11 +3096,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 206365948402257,
+									"sid": 117561010620315,
 									"parameters": {
 										"object-to-create": "DialogBox",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -3025,11 +3109,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 640236541508268,
+									"sid": 218418410441606,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -3112,11 +3196,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 887164385512831,
+									"sid": 266464880873580,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -3191,11 +3275,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 182901660177455,
+									"sid": 338292341267553,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -3270,11 +3354,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 989037141738420,
+									"sid": 290586911484206,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -3337,11 +3421,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 597360728411444,
+									"sid": 990757967929140,
 									"parameters": {
 										"object-to-create": "Dialog",
 										"layer": "\"Dialog\"",
-										"x": "88",
+										"x": "160",
 										"y": "260",
 										"create-hierarchy": false,
 										"template-name": "\"\""

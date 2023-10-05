@@ -10,6 +10,8 @@
 		"ManaBar",
 		"UIInventory",
 		"UIPotions",
-		"SoulsIconMain"
+		"SoulsIconMain",
+		"SoulsSkeleton",
+		"SoulsHound"
 	]
 }

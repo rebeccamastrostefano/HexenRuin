@@ -1,0 +1,143 @@
+{
+	"name": "EventStart",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "StartBut",
+					"sid": 694298360978239
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 318803305225806,
+					"parameters": {
+						"property-name": "\"background\"",
+						"value": "\"rgb(244, 169, 254)\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 826515587984538,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"minecraft\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 773817461577540,
+					"parameters": {
+						"property-name": "\"border-radius\"",
+						"value": "\"20px\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 606484629802227,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"rgb(9, 8, 6)\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 157115954056538,
+					"parameters": {
+						"property-name": "\"border\"",
+						"value": "\"rgb(9, 8, 6)\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "StartBut",
+					"sid": 130927045038709,
+					"parameters": {
+						"property-name": "\"font-size\"",
+						"value": "\"100px\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "StartBut",
+					"sid": 791584208713854,
+					"parameters": {
+						"text": "\"START\""
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "StartBut",
+					"sid": 589716032969191,
+					"parameters": {
+						"height": "50"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "StartBut",
+					"sid": 347435494508494,
+					"parameters": {
+						"width": "150"
+					}
+				}
+			],
+			"sid": 459297795465261
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "StartBut",
+					"sid": 134108710557135
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 594839024466681,
+					"parameters": {
+						"layout": "Forest"
+					}
+				}
+			],
+			"sid": 569706336332310
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 399295121394562
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 594362632751962,
+					"parameters": {
+						"audio-file": "19 another LOOP",
+						"loop": "looping",
+						"volume": "-7",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 475946108979811
+		}
+	],
+	"sid": 499771814161523
+}

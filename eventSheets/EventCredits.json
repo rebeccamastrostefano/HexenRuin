@@ -5,6 +5,44 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 606365112469250
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 806950370386834
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 312226488580196,
+					"parameters": {
+						"seconds": "0.3"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 356138949084730,
+					"parameters": {
+						"audio-file": "8 victory LOOP",
+						"loop": "looping",
+						"volume": "-7",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 636348870906860
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 808345584953284
@@ -22,31 +60,6 @@
 				}
 			],
 			"sid": 495682926328858
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 792727034416639
-				}
-			],
-			"actions": [
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 223257212758368,
-					"parameters": {
-						"audio-file": "8 victory LOOP",
-						"loop": "looping",
-						"volume": "-7",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				}
-			],
-			"sid": 941576255997996
 		}
 	],
 	"sid": 639628204906555

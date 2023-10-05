@@ -64,7 +64,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 31,
@@ -92,7 +93,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 28,
@@ -120,7 +122,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 28,
@@ -148,7 +151,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 28,
@@ -176,7 +180,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 27,
@@ -204,7 +209,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 173460119345421,
@@ -243,7 +249,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 60,
@@ -271,7 +278,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 28,
@@ -299,7 +307,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 295601612894452,

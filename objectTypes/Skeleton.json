@@ -39,7 +39,8 @@
 								"y": 0
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 27,
@@ -70,7 +71,8 @@
 								"y": 0
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 21,
@@ -101,7 +103,8 @@
 								"y": 0
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 27,
@@ -132,7 +135,8 @@
 								"y": 0
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 915886118535752,
@@ -174,7 +178,8 @@
 								"y": 0.9821428571428571
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 48,
@@ -205,7 +210,8 @@
 								"y": 0.9814814814814815
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 35,
@@ -236,7 +242,8 @@
 								"y": 0.9615384615384616
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 71,
@@ -267,7 +274,8 @@
 								"y": 0.7586206896551724
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 687595272275402,
@@ -302,7 +310,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 487134941167451,

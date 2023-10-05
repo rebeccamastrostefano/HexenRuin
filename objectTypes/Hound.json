@@ -39,7 +39,8 @@
 								"y": -0.5925925925925926
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 46,
@@ -70,7 +71,8 @@
 								"y": -0.5925925925925926
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 47,
@@ -101,7 +103,8 @@
 								"y": -0.5925925925925926
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 47,
@@ -132,7 +135,8 @@
 								"y": -0.5925925925925926
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 47,
@@ -163,7 +167,8 @@
 								"y": -0.5925925925925926
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 255984140846914,
@@ -205,7 +210,8 @@
 								"y": 0.9166666666666666
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 45,
@@ -236,7 +242,8 @@
 								"y": 0.9714285714285714
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 48,
@@ -267,7 +274,8 @@
 								"y": 0.972972972972973
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 66,
@@ -298,7 +306,8 @@
 								"y": 0.9714285714285714
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 492119839273535,
@@ -333,7 +342,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 48,
@@ -357,7 +367,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 43,
@@ -381,7 +392,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 643420565095612,
@@ -416,7 +428,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 178701115252292,

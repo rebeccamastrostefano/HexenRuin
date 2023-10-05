@@ -1,7 +1,7 @@
 {
-	"name": "SummonIcon",
+	"name": "ShielIcon",
 	"plugin-id": "Sprite",
-	"sid": 299675648840167,
+	"sid": 517284327016329,
 	"isGlobal": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -18,7 +18,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5217035,
+						"imageSpriteId": 7558594,
 						"collisionPoly": {
 							"points": [
 								0,
@@ -36,7 +36,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 24,
@@ -46,7 +47,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 7855107,
+						"imageSpriteId": 4760132,
 						"collisionPoly": {
 							"points": [
 								0,
@@ -64,10 +65,11 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
-				"sid": 471029848811640,
+				"sid": 572556669853229,
 				"name": "Ball",
 				"isLooping": true,
 				"isPingPong": false,
@@ -85,7 +87,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1513197,
+						"imageSpriteId": 5923485,
 						"collisionPoly": {
 							"points": [
 								0,
@@ -103,7 +105,8 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 24,
@@ -113,7 +116,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4114834,
+						"imageSpriteId": 4162576,
 						"collisionPoly": {
 							"points": [
 								0,
@@ -131,10 +134,11 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
-				"sid": 954093287781647,
+				"sid": 371133902181677,
 				"name": "Shield",
 				"isLooping": true,
 				"isPingPong": false,

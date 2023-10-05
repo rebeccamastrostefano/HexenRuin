@@ -56,10 +56,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 138.16298555108665,
-						"y": 264.62710533168615,
-						"width": 362.4638157066532,
-						"height": 64.11384442112515,
+						"x": 157,
+						"y": 260,
+						"width": 349.4638157066532,
+						"height": 69.11384442112515,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -91,6 +91,7 @@
 						"horizontal-alignment": "center",
 						"vertical-alignment": "center",
 						"wrapping": "word",
+						"icon-set": -1,
 						"initially-visible": true,
 						"origin": "top-left",
 						"read-aloud": false
@@ -103,9 +104,9 @@
 						}
 					},
 					"world": {
-						"x": 147.038705945135,
-						"y": 263.1823385236541,
-						"width": 347.3672990673035,
+						"x": 165,
+						"y": 262,
+						"width": 331.3672990673035,
 						"height": 65.87012479303803,
 						"originX": 0,
 						"originY": 0,
@@ -142,8 +143,8 @@
 						}
 					},
 					"world": {
-						"x": 421.90875365816106,
-						"y": 301.87174710713515,
+						"x": 488,
+						"y": 320,
 						"width": 30,
 						"height": 20,
 						"originX": 0,
@@ -179,6 +180,7 @@
 								"rotate-speed": 135,
 								"rotate-object": false,
 								"diagonals": true,
+								"direct-movement": "to-destination",
 								"enabled": true
 							}
 						}

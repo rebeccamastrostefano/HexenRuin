@@ -89,7 +89,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -120,7 +121,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -151,7 +153,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -182,7 +185,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 217489981071583,
@@ -224,7 +228,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -255,7 +260,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -286,7 +292,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -317,7 +324,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -348,7 +356,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -379,38 +388,40 @@
 								"y": 0.20833333333333334
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
-						"width": 375,
+						"width": 387,
 						"height": 50,
-						"originX": 0.06666666666666667,
+						"originX": 0.06459948320413436,
 						"originY": 0.96,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1869465,
+						"imageSpriteId": 5101047,
 						"collisionPoly": {
 							"points": [
 								0,
 								0,
-								1,
+								0.1259689232483698,
 								0,
-								1,
-								0.9645833174387615,
+								0.12790682888770283,
+								0.9950000762939453,
 								0,
-								0.9687500794728598
+								1
 							]
 						},
 						"useCollisionPoly": true,
 						"imagePoints": [
 							{
 								"name": "Image Point 1",
-								"x": 0.08533333333333333,
-								"y": 0.22
+								"x": 0.04521963824289406,
+								"y": 0.43333333333333335
 							}
 						],
-						"duration": 20
+						"duration": 20,
+						"tag": ""
 					}
 				],
 				"sid": 182598628318809,
@@ -452,7 +463,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 46,
@@ -483,7 +495,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 42,
@@ -514,7 +527,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 38,
@@ -545,7 +559,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 36,
@@ -576,7 +591,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 36,
@@ -607,7 +623,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 15
+						"duration": 15,
+						"tag": ""
 					}
 				],
 				"sid": 671969522699989,
@@ -649,7 +666,8 @@
 								"y": 0.7916666666666666
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -680,7 +698,8 @@
 								"y": 0.7708333333333334
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -711,7 +730,8 @@
 								"y": 0.7291666666666666
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -742,7 +762,8 @@
 								"y": 0.7083333333333334
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 51,
@@ -773,7 +794,8 @@
 								"y": 0.6875
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 63,
@@ -804,7 +826,8 @@
 								"y": 0.8
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 461454457576561,
@@ -846,7 +869,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -877,7 +901,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 50,
@@ -908,7 +933,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 48,
@@ -939,7 +965,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 46,
@@ -970,7 +997,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 46,
@@ -1001,7 +1029,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 46,
@@ -1032,7 +1061,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 49,
@@ -1063,7 +1093,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 49,
@@ -1094,7 +1125,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					},
 					{
 						"width": 49,
@@ -1125,7 +1157,8 @@
 								"y": 0.5
 							}
 						],
-						"duration": 10
+						"duration": 10,
+						"tag": ""
 					}
 				],
 				"sid": 858601605899284,

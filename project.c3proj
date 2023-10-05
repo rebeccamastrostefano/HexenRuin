@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 32702,
+	"savedWithRelease": 35800,
 	"name": "FantasyForest",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -227,9 +227,10 @@
 							"SpellIcon",
 							"HeavySpell",
 							"FollowBall",
-							"SummonIcon",
+							"BallIcon",
 							"LightSpellIcon",
-							"ShiedlSPell"
+							"ShiedlSPell",
+							"ShielIcon"
 						],
 						"subfolders": [],
 						"name": "Spells"
@@ -250,7 +251,8 @@
 				"items": [
 					"Exit",
 					"Extract",
-					"Skip"
+					"Skip",
+					"StartBut"
 				],
 				"subfolders": [],
 				"name": "Buttons"
@@ -300,7 +302,10 @@
 					"UIInventory",
 					"UIPotions",
 					"SoulsCount",
-					"SoulsIconMain"
+					"SoulsIconMain",
+					"SoulsSkeleton",
+					"SoulsHound",
+					"Start"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -331,7 +336,8 @@
 			"Inventory",
 			"Extract",
 			"Castle",
-			"Credits"
+			"Credits",
+			"Start"
 		],
 		"subfolders": []
 	},
@@ -340,7 +346,8 @@
 			"EventForest",
 			"EventHouse",
 			"EventCastle",
-			"EventCredits"
+			"EventCredits",
+			"EventStart"
 		],
 		"subfolders": []
 	},
@@ -582,6 +589,14 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "Sould.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 638427067424338,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
@@ -608,6 +623,14 @@
 					"name": "8 victory LOOP.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 125500938421743,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "17 9 coasting LOOP.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 904219025203843,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -784,7 +807,8 @@
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
 		"autoReloadScriptsOnPreview": false,
-		"exportFileStructure": "folders"
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
 	},
 	"viewportWidth": 640,
 	"viewportHeight": 360,

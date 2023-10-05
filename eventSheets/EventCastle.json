@@ -6,6 +6,1237 @@
 			"includeSheet": "EventForest"
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AttackBoss",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Summon",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Boss",
+									"sid": 667198484230215,
+									"parameters": {
+										"instance-variable": "Status",
+										"comparison": 0,
+										"value": "\"Idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 825077431089026,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 411459809966200
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Boss",
+									"sid": 717766729669303,
+									"parameters": {
+										"instance-variable": "Status",
+										"comparison": 0,
+										"value": "\"Summon\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 667206698790549
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 500814153183008,
+									"parameters": {
+										"animation": "\"Summon2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 626145417370275,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Boss",
+									"sid": 604621152112180,
+									"parameters": {
+										"instance-variable": "Status",
+										"value": "\"Idle\""
+									}
+								}
+							],
+							"sid": 628861451245391
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Boss",
+									"sid": 389477760069230,
+									"parameters": {
+										"animation": "\"Summon2\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 985738174240382,
+									"parameters": {
+										"first-value": "Skull.Count",
+										"comparison": 2,
+										"second-value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Boss",
+									"sid": 118797672218923,
+									"parameters": {
+										"object": "Skull",
+										"layer": "\"Hero\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 459039557819769,
+									"parameters": {
+										"audio-file": "laugh2",
+										"loop": "not-looping",
+										"volume": "1",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 851580677195456,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "find-path",
+											"objectClass": "Skull",
+											"sid": 579786784802575,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"x": "Hero.X",
+												"y": "Hero.Y"
+											}
+										}
+									],
+									"sid": 751580266054073
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Skull",
+									"sid": 494946060134941,
+									"parameters": {
+										"object": "Hitbox"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Skull",
+									"sid": 781484071407688
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 629183622078621,
+									"parameters": {
+										"variable": "Health",
+										"value": "2"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 641408909409657,
+									"parameters": {
+										"audio-file": "61_Hit_03",
+										"loop": "not-looping",
+										"volume": "1",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "Hero",
+									"sid": 704547229658707,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "1.0"
+									}
+								}
+							],
+							"sid": 109901353093165
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Skull",
+									"sid": 849383847762325,
+									"parameters": {
+										"object": "HitboxShield"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Skull",
+									"sid": 757921035282109
+								}
+							],
+							"sid": 451886535996147
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-path-found",
+									"objectClass": "Skull",
+									"sid": 867161104487475,
+									"behaviorType": "Pathfinding"
+								}
+							],
+							"actions": [
+								{
+									"id": "move-along-path",
+									"objectClass": "Skull",
+									"sid": 628730347187176,
+									"behaviorType": "Pathfinding"
+								}
+							],
+							"sid": 673548287114535
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 705510750527602,
+									"parameters": {
+										"interval-seconds": "0.5"
+									}
+								},
+								{
+									"id": "is-moving-along-path",
+									"objectClass": "Skull",
+									"sid": 252147354351090,
+									"behaviorType": "Pathfinding"
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hero",
+									"sid": 769450476653620,
+									"parameters": {
+										"unique-id": "Hero.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "find-path",
+									"objectClass": "Skull",
+									"sid": 986556624207624,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"x": "Hero.X",
+										"y": "Hero.Y"
+									}
+								}
+							],
+							"sid": 295392235387732
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-arrived",
+									"objectClass": "Skull",
+									"sid": 461779920794838,
+									"behaviorType": "Pathfinding"
+								}
+							],
+							"actions": [
+								{
+									"id": "find-path",
+									"objectClass": "Skull",
+									"sid": 951215821480018,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"x": "Hero.X",
+										"y": "Hero.Y"
+									}
+								}
+							],
+							"sid": 926015776402043
+						}
+					],
+					"sid": 887465571731385
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Lightning",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Boss",
+									"sid": 683516124542984,
+									"parameters": {
+										"instance-variable": "Status",
+										"comparison": 0,
+										"value": "\"Lightning\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Boss",
+									"sid": 294968400901742,
+									"parameters": {
+										"animation": "\"Summon\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 773421296740163,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "Boss",
+											"sid": 572477304854292,
+											"parameters": {
+												"animation": "\"Summon\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 667665131800465,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Hero",
+													"sid": 710894778867005,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "450"
+													}
+												},
+												{
+													"id": "compare-x",
+													"objectClass": "Hero",
+													"sid": 947632768414493,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "600"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 344598233584606,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Spot",
+															"sid": 262746178115520,
+															"parameters": {
+																"instance-variable": "Index",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "FireColumn",
+															"sid": 369613930678370,
+															"parameters": {
+																"object": "Spot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 675261260551736,
+															"parameters": {
+																"object-to-create": "FireColumn",
+																"layer": "\"Hero\"",
+																"x": "Spot.X",
+																"y": "Spot.y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-collisions-enabled",
+															"objectClass": "FireColumn",
+															"sid": 625143737508172,
+															"parameters": {
+																"collisions": "disabled"
+															}
+														}
+													],
+													"sid": 195586831856192,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Boss",
+																	"sid": 356354421375306,
+																	"parameters": {
+																		"instance-variable": "Status",
+																		"value": "\"Idle\""
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 973745966183032,
+																	"parameters": {
+																		"seconds": "2"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 198065089342351,
+																	"parameters": {
+																		"audio-file": "04_Fire_explosion_04_medium",
+																		"loop": "not-looping",
+																		"volume": "1",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "FireColumn",
+																	"sid": 735552342903747,
+																	"parameters": {
+																		"animation": "\"Fire\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 279397793566412
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Hero",
+													"sid": 766795433789121,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "150"
+													}
+												},
+												{
+													"id": "compare-x",
+													"objectClass": "Hero",
+													"sid": 241850574612490,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "450"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 433230074878526,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Spot",
+															"sid": 103621510836460,
+															"parameters": {
+																"instance-variable": "Index",
+																"comparison": 0,
+																"value": "floor(random(6))"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "FireColumn",
+															"sid": 727821611703386,
+															"parameters": {
+																"object": "Spot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 296619310687989,
+															"parameters": {
+																"object-to-create": "FireColumn",
+																"layer": "\"Hero\"",
+																"x": "Spot.X",
+																"y": "Spot.y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-collisions-enabled",
+															"objectClass": "FireColumn",
+															"sid": 429589394916150,
+															"parameters": {
+																"collisions": "disabled"
+															}
+														}
+													],
+													"sid": 336213054061581,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Boss",
+																	"sid": 869124526956332,
+																	"parameters": {
+																		"instance-variable": "Status",
+																		"value": "\"Idle\""
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 329442971637770,
+																	"parameters": {
+																		"seconds": "2"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 128951909984454,
+																	"parameters": {
+																		"audio-file": "04_Fire_explosion_04_medium",
+																		"loop": "not-looping",
+																		"volume": "1",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "FireColumn",
+																	"sid": 726829157361251,
+																	"parameters": {
+																		"animation": "\"Fire\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 429370796335592
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "FireColumn",
+									"sid": 883135896048156,
+									"parameters": {
+										"animation": "\"Fire\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "FireColumn",
+									"sid": 298580835992350,
+									"parameters": {
+										"collisions": "enabled"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 833463167305041,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "FireColumn",
+									"sid": 922009418020530
+								}
+							],
+							"sid": 160187376356771
+						}
+					],
+					"sid": 591623124001321
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ChooseStatus",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 661520766646214,
+									"parameters": {
+										"interval-seconds": "3"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 313343652191004,
+									"parameters": {
+										"animation": "\"Summon2\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 244337942339945,
+									"parameters": {
+										"animation": "\"Summon\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 314531746644305,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Hero",
+											"sid": 145593597834270,
+											"parameters": {
+												"comparison": 4,
+												"x-co-ordinate": "150"
+											}
+										},
+										{
+											"id": "compare-x",
+											"objectClass": "Hero",
+											"sid": 753313902992713,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "450"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Boss",
+											"sid": 691930419740537,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Lightning\""
+											}
+										}
+									],
+									"sid": 176868224904027
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 829463920330791,
+									"parameters": {
+										"interval-seconds": "3"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 593221557327539,
+									"parameters": {
+										"animation": "\"Summon2\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 884682923625926,
+									"parameters": {
+										"animation": "\"Summon\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 716539632331035,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Hero",
+											"sid": 961174903838664,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "150"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Boss",
+											"sid": 326303362488583,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Summon\""
+											}
+										}
+									],
+									"sid": 398192972013763
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 867966813446924,
+									"parameters": {
+										"interval-seconds": "10"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 415755450827094,
+									"parameters": {
+										"animation": "\"Summon\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Boss",
+									"sid": 352174457289768,
+									"parameters": {
+										"animation": "\"Summon2\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 556995886715138,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Hero",
+											"sid": 591760252857660,
+											"parameters": {
+												"comparison": 4,
+												"x-co-ordinate": "450"
+											}
+										},
+										{
+											"id": "compare-x",
+											"objectClass": "Hero",
+											"sid": 170652967903992,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "600"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Boss",
+											"sid": 783853242764377,
+											"parameters": {
+												"instance-variable": "Status",
+												"value": "\"Lightning\""
+											}
+										}
+									],
+									"sid": 525250153634155,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Boss",
+													"sid": 362412450828117,
+													"parameters": {
+														"animation": "\"Summon\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spot",
+													"sid": 183083305366529,
+													"parameters": {
+														"instance-variable": "Index",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "FireColumn",
+													"sid": 278194716856368,
+													"parameters": {
+														"object": "Spot"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 255677480523132,
+													"parameters": {
+														"object-to-create": "FireColumn",
+														"layer": "\"Hero\"",
+														"x": "Spot.X",
+														"y": "Spot.y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-collisions-enabled",
+													"objectClass": "FireColumn",
+													"sid": 371263264549910,
+													"parameters": {
+														"collisions": "disabled"
+													}
+												}
+											],
+											"sid": 696609065833676
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 930851929059574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Hitbox",
+							"sid": 789720218234900,
+							"parameters": {
+								"object": "FireColumn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 157225256647794,
+							"parameters": {
+								"variable": "Health",
+								"value": "0.5"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 232555721472888,
+							"parameters": {
+								"audio-file": "61_Hit_03",
+								"loop": "not-looping",
+								"volume": "1",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Hero",
+							"sid": 873873620422586,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 251720008724650
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "HitMelee",
+							"sid": 141140889377301,
+							"parameters": {
+								"object": "Boss"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Boss",
+							"sid": 369166497933148,
+							"parameters": {
+								"instance-variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 532414097148481,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Boss",
+							"sid": 564227608374971,
+							"parameters": {
+								"instance-variable": "Health",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 308794330272955,
+							"parameters": {
+								"audio-file": "45_Landing_01",
+								"loop": "not-looping",
+								"volume": "1",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Boss",
+							"sid": 689190814496379,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 781322025307337
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "HitLight",
+							"sid": 227970395467089,
+							"parameters": {
+								"object": "Boss"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Boss",
+							"sid": 491197261527162,
+							"parameters": {
+								"instance-variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 329425522697948,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Boss",
+							"sid": 693283048919508,
+							"parameters": {
+								"instance-variable": "Health",
+								"value": "2"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 510183277315903,
+							"parameters": {
+								"audio-file": "45_Landing_01",
+								"loop": "not-looping",
+								"volume": "1",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Boss",
+							"sid": 348142378557088,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 221142136303046,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "HitHeavy",
+							"sid": 880976643296597,
+							"parameters": {
+								"object": "Boss"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Boss",
+							"sid": 844196187809541,
+							"parameters": {
+								"instance-variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 767644754358806,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Boss",
+							"sid": 521250115501369,
+							"parameters": {
+								"instance-variable": "Health",
+								"value": "5"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 434143021231102,
+							"parameters": {
+								"audio-file": "45_Landing_01",
+								"loop": "not-looping",
+								"volume": "1",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Boss",
+							"sid": 839191222816135,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 772347291171918
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Ball",
+							"sid": 467606561607065,
+							"parameters": {
+								"object": "Boss"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Ball",
+							"sid": 696947545335849
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Boss",
+							"sid": 118275334278955,
+							"parameters": {
+								"instance-variable": "Health",
+								"value": "7"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 858222131698440,
+							"parameters": {
+								"audio-file": "45_Landing_01",
+								"loop": "not-looping",
+								"volume": "1",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Boss",
+							"sid": 786004627745894,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 515966250991766
+				}
+			],
+			"sid": 253748883347930
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -15,6 +1246,19 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 848395798209247
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 110461779159603,
+					"parameters": {
+						"seconds": "0.3"
+					}
+				},
 				{
 					"id": "set-enabled",
 					"objectClass": "Hero",
@@ -161,14 +1405,6 @@
 					}
 				},
 				{
-					"id": "stop",
-					"objectClass": "Audio",
-					"sid": 686228009356506,
-					"parameters": {
-						"tag": "\"Regular\""
-					}
-				},
-				{
 					"id": "move-to-layer",
 					"objectClass": "Items",
 					"sid": 805911671224205,
@@ -248,6 +1484,7 @@
 			],
 			"actions": [],
 			"sid": 301096834297265,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -274,7 +1511,8 @@
 							}
 						}
 					],
-					"sid": 112512120247500
+					"sid": 112512120247500,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -301,7 +1539,8 @@
 							}
 						}
 					],
-					"sid": 847736353743937
+					"sid": 847736353743937,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -328,7 +1567,8 @@
 							}
 						}
 					],
-					"sid": 220157267359607
+					"sid": 220157267359607,
+					"disabled": true
 				}
 			]
 		},
@@ -357,7 +1597,8 @@
 					}
 				}
 			],
-			"sid": 989856968552624
+			"sid": 989856968552624,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -384,7 +1625,8 @@
 					}
 				}
 			],
-			"sid": 130516626085303
+			"sid": 130516626085303,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -411,843 +1653,8 @@
 					}
 				}
 			],
-			"sid": 923562898192211
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 562350095660552,
-					"parameters": {
-						"instance-variable": "Status",
-						"comparison": 0,
-						"value": "\"Lightning\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 471726169506171,
-					"parameters": {
-						"animation": "\"Summon\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 115786912338444,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-animation-finished",
-							"objectClass": "Boss",
-							"sid": 428169390303984,
-							"parameters": {
-								"animation": "\"Summon\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Spot",
-							"sid": 930954803409529,
-							"parameters": {
-								"instance-variable": "Index",
-								"comparison": 0,
-								"value": "floor(random(6))"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "FireColumn",
-							"sid": 398754643015388,
-							"parameters": {
-								"object": "Spot"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 225507569034215,
-							"parameters": {
-								"object-to-create": "FireColumn",
-								"layer": "\"Hero\"",
-								"x": "Spot.X",
-								"y": "Spot.y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-collisions-enabled",
-							"objectClass": "FireColumn",
-							"sid": 239842466132861,
-							"parameters": {
-								"collisions": "disabled"
-							}
-						}
-					],
-					"sid": 779413024303703,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Boss",
-									"sid": 288475280145333,
-									"parameters": {
-										"instance-variable": "Status",
-										"value": "\"Idle\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 788560948662546,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 857740658217072,
-									"parameters": {
-										"audio-file": "04_Fire_explosion_04_medium",
-										"loop": "not-looping",
-										"volume": "1",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "FireColumn",
-									"sid": 340277808189478,
-									"parameters": {
-										"animation": "\"Fire\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-collisions-enabled",
-									"objectClass": "FireColumn",
-									"sid": 382106477322235,
-									"parameters": {
-										"collisions": "enabled"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 677226613626416,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "FireColumn",
-									"sid": 524201565573283
-								}
-							],
-							"sid": 721659019171121
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Spot",
-									"sid": 967596939876343,
-									"parameters": {
-										"instance-variable": "Index",
-										"comparison": 0,
-										"value": "floor(random(6))"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "FireColumn",
-									"sid": 667442853374688,
-									"parameters": {
-										"object": "Spot"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 424113712324037,
-									"parameters": {
-										"object-to-create": "FireColumn",
-										"layer": "\"Hero\"",
-										"x": "Spot.X",
-										"y": "Spot.y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 640341183374386,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Spot",
-											"sid": 545716900761622,
-											"parameters": {
-												"instance-variable": "Index",
-												"comparison": 0,
-												"value": "floor(random(6))"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "FireColumn",
-											"sid": 966461739058655,
-											"parameters": {
-												"object": "Spot"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 727886707168947,
-											"parameters": {
-												"object-to-create": "FireColumn",
-												"layer": "\"Hero\"",
-												"x": "Spot.X",
-												"y": "Spot.y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										}
-									],
-									"sid": 283702928744464
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 117536206126008,
-					"parameters": {
-						"instance-variable": "Status",
-						"comparison": 0,
-						"value": "\"Idle\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 917460690961310,
-					"parameters": {
-						"animation": "\"Idle\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 900388171131941
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 678895752318907,
-					"parameters": {
-						"instance-variable": "Status",
-						"comparison": 0,
-						"value": "\"Summon\""
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 416627215782750
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Boss",
-					"sid": 421876952680924,
-					"parameters": {
-						"animation": "\"Summon2\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 545102523024574,
-					"parameters": {
-						"seconds": "2"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Boss",
-					"sid": 656271172412235,
-					"parameters": {
-						"instance-variable": "Status",
-						"value": "\"Idle\""
-					}
-				}
-			],
-			"sid": 802713258318433
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-animation-finished",
-					"objectClass": "Boss",
-					"sid": 517654686088874,
-					"parameters": {
-						"animation": "\"Summon2\""
-					}
-				},
-				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 743468951354735,
-					"parameters": {
-						"first-value": "Skull.Count",
-						"comparison": 2,
-						"second-value": "4"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "spawn-another-object",
-					"objectClass": "Boss",
-					"sid": 590321313713794,
-					"parameters": {
-						"object": "Skull",
-						"layer": "\"Hero\"",
-						"image-point": "0",
-						"create-hierarchy": false
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 256957896436940,
-					"parameters": {
-						"audio-file": "laugh2",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				}
-			],
-			"sid": 943883125306651,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "find-path",
-							"objectClass": "Skull",
-							"sid": 327746759062229,
-							"behaviorType": "Pathfinding",
-							"parameters": {
-								"x": "Hero.X",
-								"y": "Hero.Y"
-							}
-						}
-					],
-					"sid": 273254164039931
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Skull",
-					"sid": 603471357182456,
-					"parameters": {
-						"object": "Hitbox"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Skull",
-					"sid": 249053186552811
-				},
-				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 663220832061305,
-					"parameters": {
-						"variable": "Health",
-						"value": "2"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 817174530327663,
-					"parameters": {
-						"audio-file": "61_Hit_03",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Hero",
-					"sid": 536732437359106,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 421430574362330
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Skull",
-					"sid": 985782322935226,
-					"parameters": {
-						"object": "HitboxShield"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Skull",
-					"sid": 842751547652794
-				}
-			],
-			"sid": 837472098489217
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-path-found",
-					"objectClass": "Skull",
-					"sid": 619496199458017,
-					"behaviorType": "Pathfinding"
-				}
-			],
-			"actions": [
-				{
-					"id": "move-along-path",
-					"objectClass": "Skull",
-					"sid": 166370861881775,
-					"behaviorType": "Pathfinding"
-				}
-			],
-			"sid": 833855590875039
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 529462527777154,
-					"parameters": {
-						"interval-seconds": "0.5"
-					}
-				},
-				{
-					"id": "is-moving-along-path",
-					"objectClass": "Skull",
-					"sid": 926924670080195,
-					"behaviorType": "Pathfinding"
-				},
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Hero",
-					"sid": 496612830897575,
-					"parameters": {
-						"unique-id": "Hero.UID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "find-path",
-					"objectClass": "Skull",
-					"sid": 756509211535292,
-					"behaviorType": "Pathfinding",
-					"parameters": {
-						"x": "Hero.X",
-						"y": "Hero.Y"
-					}
-				}
-			],
-			"sid": 176088443765347
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-arrived",
-					"objectClass": "Skull",
-					"sid": 288788095838599,
-					"behaviorType": "Pathfinding"
-				}
-			],
-			"actions": [
-				{
-					"id": "find-path",
-					"objectClass": "Skull",
-					"sid": 449425815351647,
-					"behaviorType": "Pathfinding",
-					"parameters": {
-						"x": "Hero.X",
-						"y": "Hero.Y"
-					}
-				}
-			],
-			"sid": 645855780553566
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Hitbox",
-					"sid": 870313772759425,
-					"parameters": {
-						"object": "FireColumn"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 128876155354690,
-					"parameters": {
-						"variable": "Health",
-						"value": "1"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 290906977761327,
-					"parameters": {
-						"audio-file": "61_Hit_03",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Hero",
-					"sid": 319649478768779,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 564333436649432
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "HitMelee",
-					"sid": 512981192141834,
-					"parameters": {
-						"object": "Boss"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 100669368090830,
-					"parameters": {
-						"instance-variable": "Health",
-						"comparison": 1,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 348525041895084,
-					"parameters": {
-						"seconds": "0.2"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "Boss",
-					"sid": 770742965946479,
-					"parameters": {
-						"instance-variable": "Health",
-						"value": "0.5"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 707240145562416,
-					"parameters": {
-						"audio-file": "45_Landing_01",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Boss",
-					"sid": 989763017511317,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 918490410487787
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "HitLight",
-					"sid": 690375438012177,
-					"parameters": {
-						"object": "Boss"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 908717559589568,
-					"parameters": {
-						"instance-variable": "Health",
-						"comparison": 1,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 840294886353725,
-					"parameters": {
-						"seconds": "0.2"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "Boss",
-					"sid": 360449419606277,
-					"parameters": {
-						"instance-variable": "Health",
-						"value": "2"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 755544440792870,
-					"parameters": {
-						"audio-file": "45_Landing_01",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Boss",
-					"sid": 507144320587647,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 893563496880201
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "HitHeavy",
-					"sid": 894597369885920,
-					"parameters": {
-						"object": "Boss"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Boss",
-					"sid": 131577685327595,
-					"parameters": {
-						"instance-variable": "Health",
-						"comparison": 1,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 138760539597136,
-					"parameters": {
-						"seconds": "0.2"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "Boss",
-					"sid": 200658064474308,
-					"parameters": {
-						"instance-variable": "Health",
-						"value": "3"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 812572325455169,
-					"parameters": {
-						"audio-file": "45_Landing_01",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Boss",
-					"sid": 481625911169974,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 820779025083146
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Ball",
-					"sid": 333668547379870,
-					"parameters": {
-						"object": "Boss"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Ball",
-					"sid": 333783547655910
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "Boss",
-					"sid": 528985297617853,
-					"parameters": {
-						"instance-variable": "Health",
-						"value": "3"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 366549158027778,
-					"parameters": {
-						"audio-file": "45_Landing_01",
-						"loop": "not-looping",
-						"volume": "1",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "flash",
-					"objectClass": "Boss",
-					"sid": 100812436963037,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				}
-			],
-			"sid": 662386559376939
+			"sid": 923562898192211,
+			"disabled": true
 		},
 		{
 			"eventType": "group",
@@ -2072,10 +2479,10 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Boss",
-							"sid": 726129655161064,
+							"sid": 248544441531331,
 							"parameters": {
 								"instance-variable": "Health",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							}
 						}
@@ -2162,15 +2569,7 @@
 									"sid": 263126349966920
 								}
 							],
-							"sid": 531672550995435,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 426435765998772
-								}
-							]
+							"sid": 531672550995435
 						}
 					]
 				},
@@ -2226,6 +2625,12 @@
 				}
 			],
 			"sid": 728814509199046
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 546041679412827
 		}
 	],
 	"sid": 235825720790398

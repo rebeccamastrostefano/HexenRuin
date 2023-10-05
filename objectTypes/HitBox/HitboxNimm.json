@@ -4,7 +4,13 @@
 	"sid": 623457240367531,
 	"isGlobal": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Persist",
+			"name": "Persist",
+			"sid": 251646353750277
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -13,14 +19,15 @@
 					{
 						"width": 250,
 						"height": 250,
-						"originX": 0,
-						"originY": -0.004,
+						"originX": 0.488,
+						"originY": 1.004,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"imageSpriteId": 3455576,
 						"useCollisionPoly": true,
-						"duration": 1
+						"duration": 1,
+						"tag": ""
 					}
 				],
 				"sid": 519125581573177,
